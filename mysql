@@ -1,0 +1,14 @@
+mysql code for db
+-- Create database if it doesn't exist CREATE DATABASE IF NOT EXISTS medical_records;
+
+-- Use the database USE medical_records;
+
+-- Create users table (for both doctors and admin) CREATE TABLE IF NOT EXISTS users ( id VARCHAR(100) PRIMARY KEY, name VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, role VARCHAR(20) NOT NULL, specialization VARCHAR(255), university VARCHAR(255), graduation_year VARCHAR(50), experience VARCHAR(50), college VARCHAR(255), joining_date TIMESTAMP, age INT, sex VARCHAR(10), blood_group VARCHAR(10), remarks TEXT, registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP );
+
+-- Create medical records table CREATE TABLE IF NOT EXISTS medical_records ( id VARCHAR(100) PRIMARY KEY, patient_id VARCHAR(100) NOT NULL, description VARCHAR(255) NOT NULL, file_name VARCHAR(255) NOT NULL, file_type VARCHAR(100) NOT NULL, file_size BIGINT, file_path VARCHAR(255) NOT NULL, file_data TEXT, hash VARCHAR(255) NOT NULL, created_by VARCHAR(100) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (patient_id) REFERENCES users(id) ON DELETE RESTRICT, FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE RESTRICT );
+
+-- Create download requests table CREATE TABLE IF NOT EXISTS download_requests ( id VARCHAR(100) PRIMARY KEY, patient_id VARCHAR(100) NOT NULL, record_id VARCHAR(100) NOT NULL, record_hash VARCHAR(255) NOT NULL, record_description VARCHAR(255) NOT NULL, status VARCHAR(20) NOT NULL DEFAULT 'pending', requested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, approved_at TIMESTAMP, rejected_at TIMESTAMP, downloaded_at TIMESTAMP, FOREIGN KEY (patient_id) REFERENCES users(id) ON DELETE CASCADE, FOREIGN KEY (record_id) REFERENCES medical_records(id) ON DELETE CASCADE );
+
+-- Create download history table CREATE TABLE IF NOT EXISTS download_history ( id VARCHAR(100) PRIMARY KEY, patient_id VARCHAR(100) NOT NULL, record_id VARCHAR(100) NOT NULL, record_hash VARCHAR(255) NOT NULL, record_description VARCHAR(255) NOT NULL, downloaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (patient_id) REFERENCES users(id) ON DELETE CASCADE, FOREIGN KEY (record_id) REFERENCES medical_records(id) ON DELETE CASCADE );
+
+-- Insert default admin user (username: admin, password: root123) INSERT INTO users (id, name, password, role, registration_date) VALUES ('admin', 'Administrator', 'root123', 'admin', CURRENT_TIMESTAMP) ON DUPLICATE KEY UPDATE name = 'Administrator';
