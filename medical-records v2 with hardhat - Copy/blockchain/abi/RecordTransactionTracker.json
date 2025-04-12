@@ -1,0 +1,343 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "RecordTransactionTracker",
+  "sourceName": "contracts/RecordTransactionTracker.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "recordHash",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "patientId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "createdBy",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RecordAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "admin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "recordHash",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RecordApproved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RecordDeleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RecordModified",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "admin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RequestApproved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "admin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RequestRejected",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "recordHash",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "patientId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RequestSubmitted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "recordHash",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "patientId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "createdBy",
+          "type": "string"
+        }
+      ],
+      "name": "logRecordAdded",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "recordHash",
+          "type": "string"
+        }
+      ],
+      "name": "logRecordApproved",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        }
+      ],
+      "name": "logRecordDeleted",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "recordId",
+          "type": "string"
+        }
+      ],
+      "name": "logRecordModified",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        }
+      ],
+      "name": "logRequestApproved",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        }
+      ],
+      "name": "logRequestRejected",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "requestId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "recordHash",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "patientId",
+          "type": "string"
+        }
+      ],
+      "name": "logRequestSubmitted",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b506109428061001f6000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c806361bcba681161005b57806361bcba68146100d65780637b714de3146100f2578063ef5408221461010e578063fba568bc1461012a5761007d565b8063066b748714610082578063202577411461009e5780635eab0bef146100ba575b600080fd5b61009c600480360381019061009791906104f7565b610146565b005b6100b860048036038101906100b39190610540565b610199565b005b6100d460048036038101906100cf91906104f7565b6101f5565b005b6100f060048036038101906100eb9190610617565b610248565b005b61010c6004803603810190610107919061068f565b61029e565b005b610128600480360381019061012391906104f7565b6102f7565b005b610144600480360381019061013f91906104f7565b61034a565b005b3373ffffffffffffffffffffffffffffffffffffffff167f5e1be58828fc8c0e6d294648391344c8d44bae5de1c837029b45051e28a3e46e824260405161018e9291906107ce565b60405180910390a250565b3373ffffffffffffffffffffffffffffffffffffffff167f6825b9eeb3ef21f749762d3c21e19933fcd32875b413b189e5b9acd6c099e0ea85858585426040516101e79594939291906107fe565b60405180910390a250505050565b3373ffffffffffffffffffffffffffffffffffffffff167fd63b59090395fecd4ecff00e977315e17546be5fd9865c4c03e8bf7a080de735824260405161023d9291906107ce565b60405180910390a250565b3373ffffffffffffffffffffffffffffffffffffffff167f7f5cb8150978975c77ec5cfde010510a787c6ba775977be365baa9e13fcde5e88383426040516102929392919061086d565b60405180910390a25050565b3373ffffffffffffffffffffffffffffffffffffffff167fb2b81265c738089f33eb909e00f2f813339487cbca6aa61a4358aa7b2f911297848484426040516102ea94939291906108b2565b60405180910390a2505050565b3373ffffffffffffffffffffffffffffffffffffffff167f0ebd439d2ddefff7b42b34ed0b3336c0cba0be513d3bf9f3f6527ef33b1c19ca824260405161033f9291906107ce565b60405180910390a250565b3373ffffffffffffffffffffffffffffffffffffffff167f7af5ac839f0110f7b7003e5e5f0cdbbfd477c708c6393017e178a5da3d04282c82426040516103929291906107ce565b60405180910390a250565b6000604051905090565b600080fd5b600080fd5b600080fd5b600080fd5b6000601f19601f8301169050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b610404826103bb565b810181811067ffffffffffffffff82111715610423576104226103cc565b5b80604052505050565b600061043661039d565b905061044282826103fb565b919050565b600067ffffffffffffffff821115610462576104616103cc565b5b61046b826103bb565b9050602081019050919050565b82818337600083830152505050565b600061049a61049584610447565b61042c565b9050828152602081018484840111156104b6576104b56103b6565b5b6104c1848285610478565b509392505050565b600082601f8301126104de576104dd6103b1565b5b81356104ee848260208601610487565b91505092915050565b60006020828403121561050d5761050c6103a7565b5b600082013567ffffffffffffffff81111561052b5761052a6103ac565b5b610537848285016104c9565b91505092915050565b6000806000806080858703121561055a576105596103a7565b5b600085013567ffffffffffffffff811115610578576105776103ac565b5b610584878288016104c9565b945050602085013567ffffffffffffffff8111156105a5576105a46103ac565b5b6105b1878288016104c9565b935050604085013567ffffffffffffffff8111156105d2576105d16103ac565b5b6105de878288016104c9565b925050606085013567ffffffffffffffff8111156105ff576105fe6103ac565b5b61060b878288016104c9565b91505092959194509250565b6000806040838503121561062e5761062d6103a7565b5b600083013567ffffffffffffffff81111561064c5761064b6103ac565b5b610658858286016104c9565b925050602083013567ffffffffffffffff811115610679576106786103ac565b5b610685858286016104c9565b9150509250929050565b6000806000606084860312156106a8576106a76103a7565b5b600084013567ffffffffffffffff8111156106c6576106c56103ac565b5b6106d2868287016104c9565b935050602084013567ffffffffffffffff8111156106f3576106f26103ac565b5b6106ff868287016104c9565b925050604084013567ffffffffffffffff8111156107205761071f6103ac565b5b61072c868287016104c9565b9150509250925092565b600081519050919050565b600082825260208201905092915050565b60005b83811015610770578082015181840152602081019050610755565b60008484015250505050565b600061078782610736565b6107918185610741565b93506107a1818560208601610752565b6107aa816103bb565b840191505092915050565b6000819050919050565b6107c8816107b5565b82525050565b600060408201905081810360008301526107e8818561077c565b90506107f760208301846107bf565b9392505050565b600060a0820190508181036000830152610818818861077c565b9050818103602083015261082c818761077c565b90508181036040830152610840818661077c565b90508181036060830152610854818561077c565b905061086360808301846107bf565b9695505050505050565b60006060820190508181036000830152610887818661077c565b9050818103602083015261089b818561077c565b90506108aa60408301846107bf565b949350505050565b600060808201905081810360008301526108cc818761077c565b905081810360208301526108e0818661077c565b905081810360408301526108f4818561077c565b905061090360608301846107bf565b9594505050505056fea2646970667358221220e29a2da15ad07ca0e4c5bd24d1d93901a6fbd55c3c523058fbc751693d0c094764736f6c634300081c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061007d5760003560e01c806361bcba681161005b57806361bcba68146100d65780637b714de3146100f2578063ef5408221461010e578063fba568bc1461012a5761007d565b8063066b748714610082578063202577411461009e5780635eab0bef146100ba575b600080fd5b61009c600480360381019061009791906104f7565b610146565b005b6100b860048036038101906100b39190610540565b610199565b005b6100d460048036038101906100cf91906104f7565b6101f5565b005b6100f060048036038101906100eb9190610617565b610248565b005b61010c6004803603810190610107919061068f565b61029e565b005b610128600480360381019061012391906104f7565b6102f7565b005b610144600480360381019061013f91906104f7565b61034a565b005b3373ffffffffffffffffffffffffffffffffffffffff167f5e1be58828fc8c0e6d294648391344c8d44bae5de1c837029b45051e28a3e46e824260405161018e9291906107ce565b60405180910390a250565b3373ffffffffffffffffffffffffffffffffffffffff167f6825b9eeb3ef21f749762d3c21e19933fcd32875b413b189e5b9acd6c099e0ea85858585426040516101e79594939291906107fe565b60405180910390a250505050565b3373ffffffffffffffffffffffffffffffffffffffff167fd63b59090395fecd4ecff00e977315e17546be5fd9865c4c03e8bf7a080de735824260405161023d9291906107ce565b60405180910390a250565b3373ffffffffffffffffffffffffffffffffffffffff167f7f5cb8150978975c77ec5cfde010510a787c6ba775977be365baa9e13fcde5e88383426040516102929392919061086d565b60405180910390a25050565b3373ffffffffffffffffffffffffffffffffffffffff167fb2b81265c738089f33eb909e00f2f813339487cbca6aa61a4358aa7b2f911297848484426040516102ea94939291906108b2565b60405180910390a2505050565b3373ffffffffffffffffffffffffffffffffffffffff167f0ebd439d2ddefff7b42b34ed0b3336c0cba0be513d3bf9f3f6527ef33b1c19ca824260405161033f9291906107ce565b60405180910390a250565b3373ffffffffffffffffffffffffffffffffffffffff167f7af5ac839f0110f7b7003e5e5f0cdbbfd477c708c6393017e178a5da3d04282c82426040516103929291906107ce565b60405180910390a250565b6000604051905090565b600080fd5b600080fd5b600080fd5b600080fd5b6000601f19601f8301169050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b610404826103bb565b810181811067ffffffffffffffff82111715610423576104226103cc565b5b80604052505050565b600061043661039d565b905061044282826103fb565b919050565b600067ffffffffffffffff821115610462576104616103cc565b5b61046b826103bb565b9050602081019050919050565b82818337600083830152505050565b600061049a61049584610447565b61042c565b9050828152602081018484840111156104b6576104b56103b6565b5b6104c1848285610478565b509392505050565b600082601f8301126104de576104dd6103b1565b5b81356104ee848260208601610487565b91505092915050565b60006020828403121561050d5761050c6103a7565b5b600082013567ffffffffffffffff81111561052b5761052a6103ac565b5b610537848285016104c9565b91505092915050565b6000806000806080858703121561055a576105596103a7565b5b600085013567ffffffffffffffff811115610578576105776103ac565b5b610584878288016104c9565b945050602085013567ffffffffffffffff8111156105a5576105a46103ac565b5b6105b1878288016104c9565b935050604085013567ffffffffffffffff8111156105d2576105d16103ac565b5b6105de878288016104c9565b925050606085013567ffffffffffffffff8111156105ff576105fe6103ac565b5b61060b878288016104c9565b91505092959194509250565b6000806040838503121561062e5761062d6103a7565b5b600083013567ffffffffffffffff81111561064c5761064b6103ac565b5b610658858286016104c9565b925050602083013567ffffffffffffffff811115610679576106786103ac565b5b610685858286016104c9565b9150509250929050565b6000806000606084860312156106a8576106a76103a7565b5b600084013567ffffffffffffffff8111156106c6576106c56103ac565b5b6106d2868287016104c9565b935050602084013567ffffffffffffffff8111156106f3576106f26103ac565b5b6106ff868287016104c9565b925050604084013567ffffffffffffffff8111156107205761071f6103ac565b5b61072c868287016104c9565b9150509250925092565b600081519050919050565b600082825260208201905092915050565b60005b83811015610770578082015181840152602081019050610755565b60008484015250505050565b600061078782610736565b6107918185610741565b93506107a1818560208601610752565b6107aa816103bb565b840191505092915050565b6000819050919050565b6107c8816107b5565b82525050565b600060408201905081810360008301526107e8818561077c565b90506107f760208301846107bf565b9392505050565b600060a0820190508181036000830152610818818861077c565b9050818103602083015261082c818761077c565b90508181036040830152610840818661077c565b90508181036060830152610854818561077c565b905061086360808301846107bf565b9695505050505050565b60006060820190508181036000830152610887818661077c565b9050818103602083015261089b818561077c565b90506108aa60408301846107bf565b949350505050565b600060808201905081810360008301526108cc818761077c565b905081810360208301526108e0818661077c565b905081810360408301526108f4818561077c565b905061090360608301846107bf565b9594505050505056fea2646970667358221220e29a2da15ad07ca0e4c5bd24d1d93901a6fbd55c3c523058fbc751693d0c094764736f6c634300081c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

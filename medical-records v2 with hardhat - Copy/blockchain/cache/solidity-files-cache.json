@@ -1,0 +1,41 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\Sri Sri\\Downloads\\V2\\medical-records v2 with hardhat\\blockchain\\contracts\\RecordTransactionTracker.sol": {
+      "lastModificationDate": 1743848433899,
+      "contentHash": "4acaa8853ba6dd4b82699596b73a1fed",
+      "sourceName": "contracts/RecordTransactionTracker.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "RecordTransactionTracker"
+      ]
+    }
+  }
+}
